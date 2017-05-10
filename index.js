@@ -6,8 +6,9 @@ const MworldStore = require('./lib/stores');
  * A sample role for the component.
  */
 const ROLE = {
-  name: 'Mworld',
-  component: MworldComponent
+  name: 'Offsite',
+  component: MworldComponent,
+  order: 1
 };
 
 /**
@@ -23,7 +24,7 @@ function activate() {
   //   - CollectionHUD.Item
   //   - Header.Item
 
-  global.hadronApp.appRegistry.registerRole('mworld', ROLE);
+  global.hadronApp.appRegistry.registerRole('Collection.Tab', ROLE);
   global.hadronApp.appRegistry.registerAction('Mworld.Actions', MworldActions);
   global.hadronApp.appRegistry.registerStore('Mworld.Store', MworldStore);
 }
@@ -32,7 +33,7 @@ function activate() {
  * Deactivate all the components in the Mworld package.
  */
 function deactivate() {
-  global.hadronApp.appRegistry.deregisterRole('mworld', ROLE);
+  global.hadronApp.appRegistry.deregisterRole('Instance.Tab', ROLE);
   global.hadronApp.appRegistry.deregisterAction('Mworld.Actions');
   global.hadronApp.appRegistry.deregisterStore('Mworld.Store');
 }
