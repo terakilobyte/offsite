@@ -23,7 +23,7 @@ class MworldComponent extends React.Component {
   render() {
     console.log("I'm being initiated");
     return (
-      <div className="mworld">
+      <div className="mworld" style={{ width: '100%' }}>
         <h2 className="mworld-title">MworldComponent</h2>
         <p><i>mworld</i></p>
         <p>The current status is: <code>{this.props.status}</code></p>

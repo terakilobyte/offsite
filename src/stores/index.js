@@ -6,6 +6,19 @@ const debug = require('debug')('mongodb-compass:stores:mworld');
 
 let gdataService
 
+function loadGoogleMapScript(done) {
+  const script = document.createElement('script');
+  script.setAttribute('type', 'text/javascript');
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp';
+  script.onerror = function() {
+    debug('Error ocurred while loading Google Map script.');
+  };
+  script.onload = function() {
+    debug('Loaded Google Map!!!');
+  };
+  document.getElementsByTagName('head')[0].appendChild(script);
+}
+
 /**
  * Mworld store.
  */
@@ -28,6 +41,8 @@ const MworldStore = Reflux.createStore({
    * Initialize everything that is not part of the store's state.
    */
   init() {
+    debug("initing google map");
+    loadGoogleMapScript();
   },
 
   /**
